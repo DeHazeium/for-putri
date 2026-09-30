@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8dfe7">
+  <meta name="description" content="A little letter for Putri Sasha Airin, from Irfan.">
+  <title>For Sasha, with love</title>
+  <link rel="icon" href="flower.svg" type="image/svg+xml">
+  <style>
+    :root{color-scheme:light;--ink:#684452;--rose:#ba718a;--pink:#f8dfe7;--paper:#fffaf8;--line:#edcbd5;--shadow:0 25px 75px rgba(131,69,92,.15)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100svh;color:var(--ink);font-family:Georgia,'Times New Roman',serif;background:radial-gradient(circle at 12% 10%,#fff5f8 0 12%,transparent 34%),radial-gradient(circle at 90% 55%,#f4cdd9 0 7%,transparent 36%),linear-gradient(155deg,#ffeef1,#f8dfe7 55%,#f7e6ef);overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.52' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+    button{font:inherit}
+    .stage{width:min(100%,850px);margin:auto;padding:clamp(28px,5vw,58px) 20px 80px;position:relative;text-align:center}
+    .eyebrow{margin:0 0 14px;color:#a55d79;text-transform:uppercase;font:600 .72rem/1.4 Arial,sans-serif;letter-spacing:.31em}
+    h1{margin:0;color:#87465e;font-size:clamp(2.55rem,7vw,5.25rem);font-weight:400;letter-spacing:-.045em;line-height:1.05}
+    .subtitle{margin:18px auto 0;color:#9b6276;font-size:clamp(1rem,2.6vw,1.23rem);font-style:italic;line-height:1.45}
+    .art-wrap{position:relative;width:min(61vw,340px);margin:25px auto -3px;z-index:2;filter:drop-shadow(0 14px 18px rgba(112,66,77,.15));animation:bob 5s ease-in-out infinite}
+    .art-wrap img{display:block;width:100%;height:auto}
+    .sparkle{position:absolute;color:#d08ca5;font-size:clamp(18px,3vw,30px);animation:twinkle 3s ease-in-out infinite;user-select:none}
+    .sparkle.one{left:-13%;top:20%}.sparkle.two{right:-12%;top:3%;animation-delay:1.1s}.sparkle.three{right:-4%;bottom:12%;animation-delay:2s;font-size:18px}
+    .envelope-button{display:block;position:relative;width:min(77vw,440px);height:clamp(205px,40vw,252px);margin:0 auto;border:0;background:transparent;cursor:pointer;padding:0;filter:drop-shadow(0 18px 25px rgba(132,64,87,.18));transition:transform .4s ease,filter .4s ease}
+    .envelope-button:hover,.envelope-button:focus-visible{transform:translateY(-5px);filter:drop-shadow(0 23px 28px rgba(132,64,87,.22))}
+    .envelope-button:focus-visible{outline:3px solid #ab6280;outline-offset:7px;border-radius:16px}
+    .envelope-back{position:absolute;inset:0;background:#f5b8c9;border:1px solid #e6a5b8;border-radius:13px}
+    .envelope-letter{position:absolute;left:8%;right:8%;top:11%;height:76%;border-radius:9px;background:#fffaf6;border:1px solid #f0d6da;box-shadow:0 4px 13px rgba(139,81,102,.1);display:grid;align-items:start;justify-content:center;padding:28px 8px 0;color:#aa6980;font-style:italic;font-size:clamp(1.05rem,3vw,1.45rem);transition:transform .7s cubic-bezier(.2,.75,.18,1);z-index:1}
+    .envelope-front{position:absolute;inset:0;background:#eaa8bc;clip-path:polygon(0 0,50% 57%,100% 0,100% 100%,0 100%);border-radius:0 0 13px 13px;z-index:2}
+    .envelope-flap{position:absolute;inset:0;background:#f8c5d3;clip-path:polygon(0 0,100% 0,50% 59%);transform-origin:top;transition:transform .7s ease;z-index:3;border-radius:13px 13px 0 0}
+    .seal{position:absolute;left:50%;top:56%;z-index:4;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#fff2f3;color:#b76f88;border:2px solid #efd8dc;font-size:1.7rem;box-shadow:0 5px 10px rgba(110,69,81,.13);transition:opacity .3s}
+    .is-open .envelope-flap{transform:rotateX(180deg);z-index:0}
+    .is-open .envelope-letter{transform:translateY(-54px)}
+    .is-open .seal{opacity:0}
+    .tap-note{margin:19px auto 0;color:#9b6276;font:600 .7rem Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;animation:pulse 2.6s ease-in-out infinite}
+    .letter{width:min(100%,680px);margin:50px auto 0;padding:clamp(28px,6vw,65px);position:relative;text-align:left;background:rgba(255,251,249,.95);border:1px solid rgba(229,189,201,.8);border-radius:8px 28px 12px 28px;box-shadow:var(--shadow);opacity:1;transform:none}
+    .js-ready .letter{display:none}
+    .js-ready .is-open .letter{display:block;animation:letter-in .9s .05s both}
+    .letter::before{content:"";position:absolute;inset:11px;border:1px solid #f2dbe0;border-radius:3px 20px 8px 20px;pointer-events:none}
+    .letter-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:28px;color:#b98596;font:600 .64rem Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+    .letter-top .line{flex:1;height:1px;background:#eacbd4}
+    .greeting{margin:0 0 25px;color:#9a4f6a;font-size:clamp(1.55rem,4vw,2.15rem);font-weight:400;font-style:italic}
+    .letter p{position:relative;margin:0 0 22px;font-size:clamp(1.06rem,2.55vw,1.24rem);line-height:1.8}
+    .letter .little{color:#ad7185;font-style:italic}
+    .affirmations{margin:31px 0;padding:20px 25px;border-left:3px solid #e7aabb;background:#fff0f3;border-radius:0 12px 12px 0}
+    .affirmations p{margin:0;line-height:1.9;color:#9a526c;font-style:italic}
+    .affirmations p:last-child{margin:0}
+    .signature{margin-top:33px!important;margin-bottom:0!important;color:#9a4f6a;font-style:italic}
+    .signature strong{display:inline-block;margin-top:4px;font-size:1.6rem;font-weight:400}
+    .flower-foot{display:block;width:min(62%,300px);height:auto;margin:37px auto 0;opacity:.9;filter:drop-shadow(0 8px 10px rgba(132,76,93,.1))}
+    .footer{margin:26px 0 0;color:#aa7586;font:italic .86rem Georgia,serif}
+    @keyframes bob{50%{transform:translateY(-9px) rotate(1deg)}}
+    @keyframes twinkle{50%{opacity:.35;transform:scale(.7) rotate(16deg)}}
+    @keyframes pulse{50%{opacity:.55}}
+    @keyframes letter-in{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:480px){.stage{padding:36px 17px 55px}.art-wrap{width:min(72vw,290px);margin-top:32px}.envelope-button{width:min(86vw,370px);height:205px}.letter{margin-top:43px;padding:35px 29px}.letter p{margin-bottom:18px;line-height:1.72}.flower-foot{width:76%}}
+    @media(min-width:700px){.stage{padding-top:48px}.art-wrap{margin-top:23px}.letter{margin-top:65px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <main class="stage" id="stage">
+    <p class="eyebrow">a little something for you</p>
+    <h1>Dear Sasha,</h1>
+    <p class="subtitle">Eight days since we met, and already so much to say.</p>
+
+    <div class="art-wrap" aria-hidden="true">
+      <img src="plush-friends.png" alt="" width="1296" height="1126">
+      <span class="sparkle one">✧</span><span class="sparkle two">✦</span><span class="sparkle three">✧</span>
+    </div>
+
+    <button class="envelope-button" id="open-letter" type="button" aria-label="Open the letter for Sasha" aria-controls="letter" aria-expanded="false">
+      <span class="envelope-back"></span>
+      <span class="envelope-letter">for you, always ♡</span>
+      <span class="envelope-front"></span>
+      <span class="envelope-flap"></span>
+      <span class="seal" aria-hidden="true">♥</span>
+    </button>
+    <p class="tap-note" id="tap-note">tap the envelope to open</p>
+
+    <article class="letter" id="letter" aria-label="A letter from Irfan to Sasha">
+      <div class="letter-top"><span>to sasha</span><span class="line"></span><span>from irfan</span></div>
+      <h2 class="greeting">Putri Sasha Airin,</h2>
+      <p>It's only been eight days since we met, but I already can't seem to take my eyes off you.</p>
+      <p>I like your voice and the way you talk. It's cute. I like your eyes, too.</p>
+      <p>I like your personality. I admire how hard you work and how independent you are.</p>
+      <p>I know you can do things on your own. But this time, let me do something for you.</p>
+      <p>I want to be someone you can always lean on, with a shoulder to cry on whenever you need it.</p>
+      <div class="affirmations" aria-label="A little reminder">
+        <p>You are not a burden.<br>You are not annoying.<br>You are beautiful, effortlessly.</p>
+      </div>
+      <p>So when you read this, please know that I'm trying to learn a little more about you every day.</p>
+      <p>Give me a chance, and I'll prove to you that I mean it.</p>
+      <p class="little">And don't forget to eat, okay?</p>
+      <p class="signature">Yours sincerely,<br><strong>Irfan</strong></p>
+      <img class="flower-foot" src="watercolor-flowers.png" alt="Watercolor pink flowers" width="1743" height="879">
+    </article>
+    <p class="footer">made with care ♡</p>
+  </main>
+  <script>
+    document.body.classList.add('js-ready');
+    const stage = document.getElementById('stage');
+    const button = document.getElementById('open-letter');
+    const letter = document.getElementById('letter');
+    const note = document.getElementById('tap-note');
+    button.addEventListener('click', () => {
+      if (stage.classList.contains('is-open')) { letter.scrollIntoView({behavior: 'smooth', block: 'start'}); return; }
+      stage.classList.add('is-open');
+      button.setAttribute('aria-expanded', 'true');
+      button.setAttribute('aria-label', 'Read the letter for Sasha');
+      note.textContent = 'a letter, just for you';
+      window.setTimeout(() => letter.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start'}), 520);
+    });
+  </script>
+</body>
+</html>
+
