@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8dfe7">
-  <meta name="description" content="A little letter for Putri Sasha Airin, from Irfan.">
-  <title>For Sasha, with love</title>
+  <meta name="description" content="A little letter for Putri, from Irfan.">
+  <title>For Putri, with love</title>
   <link rel="icon" href="flower.svg" type="image/svg+xml">
   <style>
     :root{color-scheme:light;--ink:#684452;--rose:#ba718a;--pink:#f8dfe7;--paper:#fffaf8;--line:#edcbd5;--shadow:0 25px 75px rgba(131,69,92,.15)}
@@ -62,7 +62,7 @@
 <body>
   <main class="stage" id="stage">
     <p class="eyebrow">a little something for you</p>
-    <h1>Dear Sasha,</h1>
+    <h1>Dear Putri,</h1>
     <p class="subtitle">Eight days since we met, and already so much to say.</p>
 
     <div class="art-wrap" aria-hidden="true">
@@ -70,7 +70,7 @@
       <span class="sparkle one">✧</span><span class="sparkle two">✦</span><span class="sparkle three">✧</span>
     </div>
 
-    <button class="envelope-button" id="open-letter" type="button" aria-label="Open the letter for Sasha" aria-controls="letter" aria-expanded="false">
+    <button class="envelope-button" id="open-letter" type="button" aria-label="Open the letter for Putri" aria-controls="letter" aria-expanded="false">
       <span class="envelope-back"></span>
       <span class="envelope-letter">for you, always ♡</span>
       <span class="envelope-front"></span>
@@ -79,9 +79,9 @@
     </button>
     <p class="tap-note" id="tap-note">tap the envelope to open</p>
 
-    <article class="letter" id="letter" aria-label="A letter from Irfan to Sasha">
-      <div class="letter-top"><span>to sasha</span><span class="line"></span><span>from irfan</span></div>
-      <h2 class="greeting">Putri Sasha Airin,</h2>
+    <article class="letter" id="letter" aria-label="A letter from Irfan to Putri">
+      <div class="letter-top"><span>to putri</span><span class="line"></span><span>from irfan</span></div>
+      <h2 class="greeting">Putri,</h2>
       <p>It's only been eight days since we met, but I already can't seem to take my eyes off you.</p>
       <p>I like your voice and the way you talk. It's cute. I like your eyes, too.</p>
       <p>I like your personality. I admire how hard you work and how independent you are.</p>
@@ -108,11 +108,12 @@
       if (stage.classList.contains('is-open')) { letter.scrollIntoView({behavior: 'smooth', block: 'start'}); return; }
       stage.classList.add('is-open');
       button.setAttribute('aria-expanded', 'true');
-      button.setAttribute('aria-label', 'Read the letter for Sasha');
+      button.setAttribute('aria-label', 'Read the letter for Putri');
       note.textContent = 'a letter, just for you';
       window.setTimeout(() => letter.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start'}), 520);
     });
   </script>
 </body>
 </html>
+
 
